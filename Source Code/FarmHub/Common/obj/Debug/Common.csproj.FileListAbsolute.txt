@@ -1,0 +1,11 @@
+C:\Users\ChenLong\source\repos\FarmHub\Common\bin\Debug\Common.dll
+C:\Users\ChenLong\source\repos\FarmHub\Common\bin\Debug\Common.pdb
+C:\Users\ChenLong\source\repos\FarmHub\Common\obj\Debug\Common.csproj.CoreCompileInputs.cache
+C:\Users\ChenLong\source\repos\FarmHub\Common\obj\Debug\Common.dll
+C:\Users\ChenLong\source\repos\FarmHub\Common\obj\Debug\Common.pdb
+C:\Users\trong\Downloads\Compressed\FarmHub\Common\bin\Debug\Common.dll
+C:\Users\trong\Downloads\Compressed\FarmHub\Common\bin\Debug\Common.pdb
+C:\Users\trong\Downloads\Compressed\FarmHub\Common\obj\Debug\Common.csprojAssemblyReference.cache
+C:\Users\trong\Downloads\Compressed\FarmHub\Common\obj\Debug\Common.csproj.CoreCompileInputs.cache
+C:\Users\trong\Downloads\Compressed\FarmHub\Common\obj\Debug\Common.dll
+C:\Users\trong\Downloads\Compressed\FarmHub\Common\obj\Debug\Common.pdb
