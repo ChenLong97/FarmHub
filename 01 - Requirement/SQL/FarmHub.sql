@@ -7,37 +7,38 @@ Use FarmHub;
 -- Đăng ký tài khoản -- ✔
 
 -- Authentication -- 
---Create Table USER_KIND
---(
---	Id_UserKind int not null primary key identity(1,1),
---	Name_UserKind nvarchar(50)
---	-- Foreign Key --
---);
+Create Table USER_KIND
+(
+	Id_UserKind int not null primary key identity(1,1),
+	Name_UserKind nvarchar(50)
+	-- Foreign Key --
+);
 
---Create Table USER_AUTHENTICATION
---(
---	Id_User int not null primary key identity(1,1),
---	Id_UserKind int,
---	Name_User varchar(50),
---	Password_User varchar(50),
---	-- Foreign Key --
---	Foreign Key (Id_UserKind) references USER_KIND(Id_UserKind)
---);
+Create Table USER_AUTHENTICATION
+(
+	Id_User int not null primary key identity(1,1),
+	Id_UserKind int,
+	Name_User varchar(50),
+	Password_User varchar(50),
+	-- Foreign Key --
+	Foreign Key (Id_UserKind) references USER_KIND(Id_UserKind)
+);
 
 Create Table FARMER 
 (
 	Id_Farmer int not null primary key identity(1,1),
-	--Id_User int,
+	Id_User int,
 	Name_Farmer nvarchar(50),
 	Birthday_Farmer nvarchar(50),
 	Gender_Farmer tinyint,
 	Address_Farmer nvarchar(200),
 	Telephone_Farmer nvarchar(10),
 	Email_Farmer nvarchar(100),
+	Image_Farmer varchar(200),
 	Farm_Count tinyint,
 	Is_Deleted bit,
 	-- Foreign Key --
-	--Foreign Key (Id_User) references USER_AUTHENTICATION(Id_User)
+	Foreign Key (Id_User) references USER_AUTHENTICATION(Id_User)
 );
 
 -- Nhập thông tin nông trại -- ✔
@@ -131,41 +132,6 @@ Create Table FARM_DETAIL
 	Foreign Key (Id_Product) references PRODUCT(Id_Product)
 );
 
----- Xem lịch sử giao dịch -- ✔
---Create Table FarmerTransHis
---(
---	Id_FarmerTransHis int not null primary key identity(1,1),
---	Id_Farmer int,
---	Id_Trader int,
---	Id_Farm int,
---	Id_Product int,
---	Id_Classification int,
---	Id_Seed int,
---	Transaction_Date date,
---	Transaction_Mass int,
---	Transaction_Price int,
---	Status_His tinyint,
---);
--- => Loại bỏ vì dư, có thể tra cứu từ TransactionOrder
-
--- Edit/Cancel đơn hàng của Thương Lái -- ✔
---Create Table FarmerTransactionOrder
---(
---	Id_TransOrder int not null primary key identity(1,1),
---	Id_Farmer int,
---	Id_Trader int,
---	Id_Farm int,
---	Id_Product int,
---	Id_Classification int,
---	Id_Seed int,
---	Transaction_Date date,
---	Transaction_Mass int,
---	Transaction_Price int,
---	Modify_Date date,
---	Status_His tinyint,
---);
--- Gộp chung với bảng TraderTransactionOrder => TransactionOrder
-
 -- Xem lịch sử giá giao dịch của các vụ mùa trước -- ✔
 Create Table MARKET_TRANS_HIS
 (
@@ -218,52 +184,18 @@ Create Table SALE_OFFER_DETAIL
 Create Table TRADER
 (
 	Id_Trader int not null primary key identity(1,1),
-	--Id_User int,
+	Id_User int,
 	Name_Trader nvarchar(50),
 	Birthday_Trader nvarchar(50),
 	Gender_Trader tinyint,
 	Address_Trader nvarchar(200),
 	Telephone_Trader nvarchar(10),
 	Email_Trader nvarchar(100),
+	Image_Trader varchar(200),
 	Is_Deleted bit,
 	-- Foreign Key --
-	--Foreign Key (Id_User) references USER_AUTHENTICATION(Id_User)
+	Foreign Key (Id_User) references USER_AUTHENTICATION(Id_User)
 );
-
--- Xem lịch sử giao dịch --
---Create Table TraderTransHis
---(
---	Id_TraderTransHis int not null primary key identity(1,1),
---	Id_Farmer int,
---	Id_Trader int,
---	Id_Farm int,
---	Id_Product int,
---	Id_Classification int,
---	Id_Seed int,
---	Transaction_Date date,
---	Transaction_Mass int,
---	Transaction_Price int,
---	Status_His tinyint,
---);
--- => Loại bỏ vì dư, có thể tra cứu từ TransactionOrder
-
--- Edit/Cancel đơn hàng của Chủ Trang Trại --
---Create Table TraderTransactionOrder
---(
---	Id_TransOrder int not null primary key identity(1,1),
---	Id_Farmer int,
---	Id_Trader int,
---	Id_Farm int,
---	Id_Product int,
---	Id_Classification int,
---	Transaction_Date date,
---	Id_Seed int,
---	Transaction_Mass int,
---	Transaction_Price int,
---	Modify_Date date,
---	Status_His tinyint,
---);
--- Gộp chung với bảng FarmerTransactionOrder => TransactionOrder
 
 -- Đặt mua theo vụ mùa -- ✔
 Create Table PURCHASE_OFFER
